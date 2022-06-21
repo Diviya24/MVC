@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model List<MVC.Models.product>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <lable>@DateTime.Now.ToString("dd-MM-yyyy:hh:mm:ss tt")</lable>
+    <br />
+    @{ if (DateTime.IsLeapYear(DateTime.Now.Year))
+        {
+            <label class="text-success">@DateTime.Now.Year-This is leap year</label>
+        }
+        else
+        {
+            <label class="text-danger">@DateTime.Now.Year-This is not a leap year</label>
+        }
+    }
+    <br />
+    <br />
+    <div class="row">
+        <a href="~/Home/Insert"class="btn btn-primary">Insert</a>
+        </div>
+    <table class="table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        <tbody>
+    @{ 
+        foreach (var x in Model)
+        {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name </td>
+                    <td>@x.price </td>
+                    <td>
+                        <a href="~/Home/Update?id=@x.Id" class="btn btn-info">Update</a>
+                    </td>
+                    <td>
+                        <a href="~/Home/Delete?id=@x.Id" class="btn btn-info">Delete</a>
+                    </td>
+                </tr>
+        }
+    }
+    </tbody>
+    </table>
+</body>
+</html>

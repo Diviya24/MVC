@@ -1,0 +1,25 @@
+﻿@model MVC.Models.product
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <form method="post" action="Update">
+        Id:<input type="text" name="Id" id="Id" value="@Model.Id"/>
+        <br />
+        Name:<input type="text" name="Name" id="Name" value="@Model.Name"/>
+        <br />
+        Price:<input type="text" name="price" id="price" value="@Model.price"/>
+        <br />
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
